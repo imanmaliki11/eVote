@@ -4,7 +4,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Vote extends CI_Controller
 {
         public function index() {
-            echo $nim;
+            $nim = $this->session->userdata('nim');
+            $data = array(
+                'nim' => $nim,
+                'status' => 1
+            );
+            $this->db->update('mahasiswa', $data, "nim = '$nim'");
+            $this->session->sess_destroy();
+            redirect(base_url());
         }
 
 }

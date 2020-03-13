@@ -24,9 +24,10 @@ class Login extends CI_Controller
                 $var = $this->db->get_where('mahasiswa', ['nim' => $nim])->row();
                 if($var) {
                         if($var->status == 0) {
+                                $this->session->set_userdata('nim', $nim);
                                 $data['judul'] = "VOTE YOUR LEADER";
                                 $this->load->view('template/header', $data);
-                                $this->load->view('home/pilih', $var);
+                                $this->load->view('home/pilih');
                                 $this->load->view('template/footer');
                         } else {
                                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="navbar-brand mx-auto tx-warna">
 			<i class="fas fa-user"></i>
-			<?= $nim ?>
+			<?= $this->session->userdata('nim'); ?>
 		</div>
 	</div>
 </nav>
@@ -26,7 +26,7 @@
 				<div class="card-body">
 					<h5 class="card-title">CALON 2</h5>
 					<p class="card-text">Nama Lengkap</p>
-					<a href="<?= base_url('Vote',$nim);?>" class="btn btn-primary">VOTE</a>
+					<a href="<?= base_url('Vote')?>" class="btn btn-primary">VOTE</a>
 				</div>
 			</div>
 		</div>
