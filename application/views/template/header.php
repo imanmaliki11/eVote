@@ -19,4 +19,4 @@
   <link href="<?=base_url('assets/')?>css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-<body id="page-top">
+<body id="page-top" class="bg-warna">

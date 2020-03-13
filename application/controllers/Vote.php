@@ -10,7 +10,7 @@ class Vote extends CI_Controller
                 'status' => 1
             );
             $this->db->update('mahasiswa', $data, "nim = '$nim'");
-            $this->session->sess_destroy();
+            $this->session->set_userdata('nim', '');
             redirect(base_url());
         }
 
