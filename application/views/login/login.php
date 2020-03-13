@@ -10,11 +10,6 @@
                     value="<?= set_value('nim') ?>">
                     <?= form_error('nim', '<small class="text-danger">', '</small>'); ?>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
-                </div>
                 <button type="submit" class="btn btn-primary center">Login</button>
             </form>
         </div>

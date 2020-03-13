@@ -9,9 +9,6 @@ class Login extends CI_Controller
                 $this->form_validation->set_rules('nim', 'Uname', 'required', [
                         'required' => 'Data required'
                 ]);
-                $this->form_validation->set_rules('password', 'Pass', 'required', [
-                        'required' => 'Data required'
-                ]);
                 if ($this->form_validation->run() == false) {
                         $data['judul'] = "E-VOTE KAHIM";
                         $this->load->view('template/header', $data);
@@ -24,17 +21,16 @@ class Login extends CI_Controller
 
         private function _login() {
                 $nim = $this->input->post('nim');
-                $pass = $this->input->post('password');
                 $var = $this->db->get_where('mahasiswa', ['nim' => $nim])->row();
                 if($var) {
-                        if($var->sandi == $pass) {
+                        if($var->status == 0) {
                                 $data['judul'] = "VOTE YOUR LEADER";
                                 $this->load->view('template/header', $data);
                                 $this->load->view('home/pilih', $var);
                                 $this->load->view('template/footer');
                         } else {
                                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                                invalid password!
+                                ANDA TELAH MEMILIH!
                                 </div>');
                                 $data['judul'] = "E-VOTE KAHIM";
                                 $this->load->view('template/header', $data);
@@ -43,7 +39,7 @@ class Login extends CI_Controller
                         }
                 } else {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                                invalid username!
+                                NIM TIDAK TERDAFTAR!
                                 </div>');
                                 $data['judul'] = "E-VOTE KAHIM";
                                 $this->load->view('template/header', $data);
