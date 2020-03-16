@@ -5,19 +5,19 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion bg-warna" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fab fa-connectdevelop"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">HMS</div>
+        <div class="sidebar-brand-text mx-3">HMS ITENAS</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -29,18 +29,25 @@
       <div class="sidebar-heading">
       </div>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#ResetModal">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Reset Data Pemilih</span></a>
-      </li>
-
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Input Pengeluaran</span></a>
+        <a class="nav-link" href="<?=base_url('Admin/tPemilih');?>">
+          <i class="fas fa-folder-plus"></i>
+          <span>Input Peserta Pemilih</span></a>
+      </li>
+
+      <!-- Nav Item - Input Calon -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-user-plus"></i>
+          <span>Input Calon Ketua</span></a>
+      </li>
+
+      <!-- Nav Item - Input Pemilih -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#ResetModal">
+        <i class="fas fa-redo-alt"></i>
+          <span class="text-danger">Reset Data Pemilih</span></a>
       </li>
 
       <!-- Divider -->
@@ -102,27 +109,40 @@
 			<div id="content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-xl-3 mb-4">
-						<div class="card shadow border-left-warning py-2">
+					<div class="col-md-12 col-xl-6 mb-4">
+						<div class="card shadow border-left-success py-2">
 							<div class="card-body">
 								<div class="row align-items-center no-gutters">
 									<div class="col mr-2">
-										<div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Data Pemilih</span></div>
-										<div class="text-dark font-weight-bold h5 mb-0"><span><?=$nilai ?></span></div>
+										<div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Suara Masuk</span></div>
+										<div class="text-dark font-weight-bold h5 mb-0"><span><?=$suaramasuk ?></span></div>
 									</div>
 									<div class="col-auto"><i class="fas fa-money-check fa-2x text-gray-300"></i></div>
 								</div>
 							</div>
 						</div>
-					</div>
+          </div>
+          
+          <div class="col-md-12 col-xl-6 mb-12">
+						<div class="card shadow border-left-warning py-2">
+							<div class="card-body">
+								<div class="row align-items-center no-gutters">
+									<div class="col mr-2">
+										<div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Pemilih Terdaftar</span></div>
+										<div class="text-dark font-weight-bold h5 mb-0"><span><?=$totalpemilih ?></span></div>
+									</div>
+									<div class="col-auto"><i class="fas fa-money-check fa-2x text-gray-300"></i></div>
+								</div>
+							</div>
+						</div>
+          </div>
+          
 				</div>
 			</div>
-		</div>
-		<!-- <footer class="bg-white sticky-footer fixed-bottom">
-			<div class="container my-auto">
-				<div class="text-center my-auto copyright"><span>Copyright © HMS ITENAS <?= date('Y'); ?></span></div>
-			</div>
-        </footer> -->
+    </div>
+    
+
+
 	</div>
 	</div>
         </div>

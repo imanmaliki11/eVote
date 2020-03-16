@@ -26,7 +26,8 @@
 				<div class="card-body">
 					<h5 class="card-title">CALON 2</h5>
 					<p class="card-text">Nama Lengkap</p>
-					<a href="<?= base_url('Vote')?>" class="btn btn-primary">VOTE</a>
+					<?php $x = 1; ?>
+					<a href="<?= base_url('vote/pilihkahim/').$x?>" class="btn btn-primary">VOTE</a>
 				</div>
 			</div>
 		</div>
