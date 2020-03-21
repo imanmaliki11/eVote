@@ -38,7 +38,7 @@
 
       <!-- Nav Item - Input Calon -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+      <a class="nav-link" href="<?=base_url('Admin/tCalon');?>">
           <i class="fas fa-user-plus"></i>
           <span>Input Calon Ketua</span></a>
       </li>
@@ -109,6 +109,7 @@
 			<div id="content">
 			<div class="container-fluid">
 				<div class="row">
+
 					<div class="col-md-12 col-xl-6 mb-4">
 						<div class="card shadow border-left-success py-2">
 							<div class="card-body">
@@ -137,7 +138,53 @@
 						</div>
           </div>
           
-				</div>
+        </div>
+      
+      <h3 class="mt-2">Perolehan Suara</h3>
+
+    <?php foreach($calon as $cl) {?>
+        <div class="row mt-2">
+
+          <div class="col-sm-6">
+            <div class="card border-success" style="height: 6rem;">
+              <div class="row no-gutters">
+                  <div class="col-xl-3 mt-1 align-items-center">
+                    <img src="<?=base_url()?>assets/img/<?=$cl['foto']?>" style="width: 4rem; height: 5.5rem;" class="card-img align-content-center">
+                  </div>
+                  <div class="card-body col-xl-9 text-align-center">
+                  <div class="text-uppercase text-dark font-weight-bold h5 mb-0"><span>#<?=$cl['no_urut']?>  <?=$cl['nama']?></span></div>
+                  <div class="text-uppercase text-dark font-weight-bold h5 mb-0"><span><?=$cl['nim']?></span></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          
+          <?php 
+            if($cl['no_urut'] == 1) { 
+              $curr = $satu;
+            } elseif($cl['no_urut'] == 2) {
+              $curr = $dua;
+            } else {
+              $curr = $tiga;
+            }
+            $p = ($curr*100 )/ $totalpemilih;
+          ?>
+
+          <div class="col-sm-6">
+            <div class="card" style="height: 6rem;">
+              <div class="card-body">
+                <h5 class="card-title">Perolehan Suara</h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <?=$p;?>%;" aria-valuemin="0" aria-valuemax="100"><?=$curr;?></div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <?php }?>
+
+
 			</div>
     </div>
     

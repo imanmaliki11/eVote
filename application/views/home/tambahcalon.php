@@ -30,14 +30,14 @@
       </div>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-folder-plus"></i>
           <span>Input Peserta Pemilih</span></a>
       </li>
 
       <!-- Nav Item - Input Calon -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#">
           <i class="fas fa-user-plus"></i>
           <span>Input Calon Ketua</span></a>
@@ -103,40 +103,38 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Tambah Data Pengguna</h1>
+          <h1 class="h3 mb-4 text-gray-800">Tambah Calon Ketua Himpunan</h1>
         	<div id="wrapper">
-		<div class="d-flex flex-column" id="content-wrapper">
+		<div class="d-flex flex-column col-xl-5 col-md-5" id="content-wrapper">
 			<div id="content">
             
 
 
 
     <!-- Note -->
-    <div class="text-danger">Pastikan File sesuai Format, Pastikan Data pemilih Valid.</div>
+    <div class="text-danger">Pesan</div>
     <br>
     <!-- Form masukan data -->
             
-    <form class="col-md-8 col-xl-8" method="post" enctype="multipart/form-data" action="<?=base_url('Admin/import')?>">
-        <div class="custom-file">
-            <label>
-                <input type="file" name="filemhs" required>
-            </label>
+    <?php echo form_open_multipart('admin/tCalonAction');?>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nama Lengkap</label>
+            <input type="text" class="form-control" name="nama" placeholder="Nama Calon">
         </div>
-        <button class="btn btn-primary mt-2" type="submit">Submit</button>
-    </form>
-
-<!-- 
-    <form action="upload.php" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
-		<h3>Upload file :</h3> 
-		<label> 
-			<input type="file" name="fupload" /> 
-		</label> 
-		<p> 
-		<label> 
-			<input type="submit" name="upload" value="Upload" /> 
-		</label> 
-		</p> 
-	</form>  -->
+        <div class="form-group">
+            <label for="formGroupExampleInput">NIM</label>
+            <input type="text" class="form-control" name="nim" placeholder="NIM Calon">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">No Urut (Conton : 1)</label>
+            <input type="text" class="form-control" name="nourut" placeholder="Nomor Urut">
+        </div>
+        <div class="custom-file">
+            <label for="formGroupExampleInput">Foto</label><br>
+            <input type="file" name="foto" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Tambahkan</button>
+    <?=form_close();?>
 
     <!-- End Form -->
  
