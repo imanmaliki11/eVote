@@ -85,9 +85,9 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline small">ADMIN</span>
               </a>
+
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
@@ -140,20 +140,20 @@
           
         </div>
       
-      <h3 class="mt-2">Perolehan Suara</h3>
-
+      <h3 class="mt-2">PEROLEHAN SUARA</h3>
+<!-- Perulangan menampilkan calon dan perolehan suara -->
     <?php foreach($calon as $cl) {?>
         <div class="row mt-2">
 
           <div class="col-sm-6">
-            <div class="card border-success" style="height: 6rem;">
+            <div class="card bg-warna" style="height: 6rem;">
               <div class="row no-gutters">
-                  <div class="col-xl-3 mt-1 align-items-center">
-                    <img src="<?=base_url()?>assets/img/<?=$cl['foto']?>" style="width: 4rem; height: 5.5rem;" class="card-img align-content-center">
+                  <div class="col-xl-3 my-1 ml-1 align-items-center">
+                    <img src="<?=base_url()?>assets/img/<?=$cl['foto']?>" style="width: 4rem; height: 5.4rem;" class="card-img align-content-center img-circle">
                   </div>
-                  <div class="card-body col-xl-9 text-align-center">
-                  <div class="text-uppercase text-dark font-weight-bold h5 mb-0"><span>#<?=$cl['no_urut']?>  <?=$cl['nama']?></span></div>
-                  <div class="text-uppercase text-dark font-weight-bold h5 mb-0"><span><?=$cl['nim']?></span></div>
+                  <div class="card-body col-xl-7 text-align-center">
+                    <div class="text-uppercase text-light font-weight-bold h5 mb-0"><span>#<?=$cl['no_urut']?>  <?=$cl['nama']?></span></div>
+                    <div class="text-uppercase text-light font-weight-bold h5 mb-0"><span><?=$cl['nim']?></span></div>
                   </div>
               </div>
             </div>
@@ -171,9 +171,9 @@
           ?>
 
           <div class="col-sm-6">
-            <div class="card" style="height: 6rem;">
+            <div class="card bg-warna" style="height: 6rem;">
               <div class="card-body">
-                <h5 class="card-title">Perolehan Suara</h5>
+                <h5 class="card-title text-light">Perolehan Suara</h5>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: <?=$p;?>%;" aria-valuemin="0" aria-valuemax="100"><?=$curr;?></div>
                 </div>  

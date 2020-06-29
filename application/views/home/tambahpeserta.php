@@ -38,7 +38,7 @@
 
       <!-- Nav Item - Input Calon -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+      <a class="nav-link" href="<?=base_url('Admin/tCalon');?>">
           <i class="fas fa-user-plus"></i>
           <span>Input Calon Ketua</span></a>
       </li>

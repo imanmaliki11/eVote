@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/eVote/';
+// $config['base_url'] = 'http://hms-evote.epizy.com/';
 
 /*
 |--------------------------------------------------------------------------

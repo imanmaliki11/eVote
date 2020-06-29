@@ -22,8 +22,12 @@ class Admin extends CI_Controller
             $uname = $this->input->post('uname');
             $pass = $this->input->post('pass');
 
-            if($uname == "hmsadmin" && $pass == "admin123") {
+            if($uname == "hmsadmin" && $pass == "evote000") {
                 $this->session->set_userdata('admin', 1);
+                redirect('Admin');
+            } else {
+                if($uname != "hmsadmin" )$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username Salah!</div>');
+                else $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('Admin');
             }
         }
@@ -32,7 +36,7 @@ class Admin extends CI_Controller
             $data['judul'] = 'Dashboard';
             $data['suaramasuk'] = $this->db->get_where('mahasiswa', ['status !=' => 0 ])->num_rows();
             $data['totalpemilih'] = $this->db->get('mahasiswa')->num_rows();
-            $data['calon'] = $this->db->get('calon')->result_array();
+            $data['calon'] = $this->db->query('SELECT * FROM `calon` ORDER BY `calon`.`no_urut` ASC')->result_array();
             $data['jcalon'] = $this->db->get('calon')->num_rows();
             $data['satu'] = $this->db->get_where('mahasiswa', ['status' => 1 ])->num_rows();
             $data['dua'] = $this->db->get_where('mahasiswa', ['status' => 2 ])->num_rows();
@@ -73,6 +77,7 @@ class Admin extends CI_Controller
         }
 
         private function _tCalon() {
+            $data['calon'] = $this->db->query('SELECT * FROM `calon` ORDER BY `calon`.`no_urut` ASC')->result_array();
             $data['judul'] = 'Tambah Calon';
             $this->load->view('template/header', $data);
             $this->load->view('home/tambahcalon');
@@ -82,7 +87,9 @@ class Admin extends CI_Controller
         public function tCalonAction() {
             $nama = $this->input->post('nama');
             $nim = $this->input->post('nim');
-            $nourut = $this->input->post('nourut');
+            //$nourut = $this->input->post('nourut');
+            $nourut =  count($this->db->query('SELECT * FROM `calon` ORDER BY `calon`.`no_urut` ASC')->result_array());
+            $nourut += 1;
             $foto = $this->input->post('foto');
 
             if($foto=''){
@@ -132,6 +139,13 @@ class Admin extends CI_Controller
                 $this->_dash();
             }	
         }
+
+        public function hapus() {
+            $id = $this->input->post('id');
+            $this->db->query("DELETE FROM `calon` WHERE `calon`.`no_urut` = '$id'");
+            redirect('Admin/tCalon');
+        }
+
 
         public function logout() {
             $this->session->set_userdata('admin', '');

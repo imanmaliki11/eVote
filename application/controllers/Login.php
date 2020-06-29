@@ -26,6 +26,7 @@ class Login extends CI_Controller
                         if($var->status == 0) {
                                 $this->session->set_userdata('nim', $nim);
                                 $data['judul'] = "VOTE YOUR LEADER";
+                                $data['calon'] = $this->db->query('SELECT * FROM `calon` ORDER BY `calon`.`no_urut` ASC')->result_array();
                                 $this->load->view('template/header', $data);
                                 $this->load->view('home/pilih');
                                 $this->load->view('template/footer');

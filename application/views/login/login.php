@@ -1,12 +1,12 @@
 <div class="container">
     <div class="d-flex justify-content-center">
-        <div class="container-login">
+        <div class="container-login bg-light">
             <h3 class="text-center">Welcome</h3>
             <?= $this->session->flashdata('message');?>
             <form method="post" action="<?= base_url('Login') ?>">
                 <div class="form-group">
                     <label for="uname">NIM</label>
-                    <input type="input" class="form-control" id="uname" name="nim" aria-describedby="emailHelp" placeholder="Username" 
+                    <input autofocus type="input" class="form-control" id="uname" name="nim" aria-describedby="emailHelp" placeholder="Username" 
                     value="<?= set_value('nim') ?>">
                     <?= form_error('nim', '<small class="text-danger">', '</small>'); ?>
                 </div>

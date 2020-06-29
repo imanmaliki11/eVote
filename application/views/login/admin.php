@@ -1,11 +1,12 @@
 <div class="container">
     <div class="d-flex justify-content-center">
-        <div class="container-login">
+        <div class="container-login bg-light">
             <h3 class="text-center">ADMIN</h3>
+            <?= $this->session->flashdata('message');?>
             <form method="post" action="<?= base_url('Admin/ceklogin') ?>">
                 <div class="form-group">
                     <label for="uname">Username</label>
-                    <input type="input" class="form-control" id="uname" name="uname" aria-describedby="emailHelp" placeholder="Username" 
+                    <input autofocus type="input" class="form-control" id="uname" name="uname" aria-describedby="emailHelp" placeholder="Username" 
                     value="<?= set_value('uname') ?>">
                     <?= form_error('uname', '<small class="text-danger">', '</small>'); ?>
                 </div>
